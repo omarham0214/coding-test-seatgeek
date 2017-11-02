@@ -35,8 +35,8 @@ dependencies {
   implementation "com.f2prateek.rx.preferences2:rx-preferences:${rootProject.ext.rxPreferencesVersion}"
 
   implementation "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofitVersion}"
-  implementation "com.squareup.retrofit2:converter-moshi:${rootProject.ext.retrofitVersion}"
   implementation "com.squareup.retrofit2:adapter-rxjava2:${rootProject.ext.retrofitVersion}"
+  implementation "com.squareup.retrofit2:converter-gson:${rootProject.ext.retrofitVersion}"
 
   implementation "com.google.dagger:dagger:${rootProject.ext.daggerVersion}"
   kapt "com.google.dagger:dagger-compiler:${rootProject.ext.daggerVersion}"

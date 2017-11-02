@@ -15,8 +15,8 @@ class EventsProvider @Inject constructor(private val apiDataSource: ApiDataSourc
                                          private val preferencesDataSource: PreferencesDataSource) : DataSource {
 
   override fun getEvents(searchTerm: String): Single<List<Event>> {
-    // TODO 11/1: Change first operator when databaseDataSource is implemented
-    return Single.concat(databaseDataSource.getEvents(searchTerm), apiDataSource.getEvents(searchTerm)).first(emptyList())
+    // TODO 11/1: Concatenate observables from database and remote sources when databaseDataSource is implemented
+    return apiDataSource.getEvents(searchTerm)
   }
 
   fun toggleFavoriteEvent(event: Event): Boolean {

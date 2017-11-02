@@ -1,5 +1,5 @@
 package com.homeaway.domain.dto
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 
-data class StatsEvent(@Json(name = "event_count") var eventCount: Int)
+data class StatsEvent(@SerializedName("event_count") var eventCount: Int)

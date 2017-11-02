@@ -1,5 +1,5 @@
 package com.homeaway.domain.dto
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 
-data class Images(@Json(name = "huge") var huge: String)
+data class Images(@SerializedName("huge") var huge: String)

@@ -1,9 +1,9 @@
 package com.homeaway.domain.dto
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 
-data class Meta(@Json(name = "per_page") var perPage: Int,
-                @Json(name = "page") var page: Int,
-                @Json(name = "geolocation") var geolocation: Any,
-                @Json(name = "took") var took: Int,
-                @Json(name = "total") var total: Int)
+data class Meta(@SerializedName("per_page") var perPage: Int,
+                @SerializedName("page") var page: Int,
+                @SerializedName("geolocation") var geolocation: Any,
+                @SerializedName("took") var took: Int,
+                @SerializedName("total") var total: Int)

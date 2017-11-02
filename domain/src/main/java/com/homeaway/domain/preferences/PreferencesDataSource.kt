@@ -1,10 +1,7 @@
 package com.homeaway.domain.preferences
 
-import android.content.SharedPreferences
 import com.f2prateek.rx.preferences2.RxSharedPreferences
-import com.homeaway.domain.DataSource
 import com.homeaway.domain.dto.Event
-import io.reactivex.Single
 import javax.inject.Inject
 
 

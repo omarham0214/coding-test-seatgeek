@@ -1,6 +1,6 @@
 package com.homeaway.domain.dto
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 
-data class Location(@Json(name = "lat") var lat: Double,
-                    @Json(name = "lon") var lon: Double)
+data class Location(@SerializedName("lat") var lat: Double,
+                    @SerializedName("lon") var lon: Double)

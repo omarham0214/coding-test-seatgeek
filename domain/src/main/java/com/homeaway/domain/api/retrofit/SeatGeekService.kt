@@ -6,7 +6,7 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -49,7 +49,7 @@ interface SeatGeekService {
           .baseUrl(BASE_URL)
           .client(okHttpClient)
           .addCallAdapterFactory(RxJava2CallAdapterFactory.createAsync())
-          .addConverterFactory(MoshiConverterFactory.create())
+          .addConverterFactory(GsonConverterFactory.create())
           .build();
     }
 

@@ -8,13 +8,12 @@ import com.homeaway.domain.api.ApiDataSource
 import com.homeaway.domain.api.retrofit.SeatGeekService
 import com.homeaway.domain.database.DatabaseDataSource
 import com.homeaway.domain.preferences.PreferencesDataSource
-import javax.inject.Singleton
-
 import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import javax.inject.Singleton
 
 /**
  * Created by Omar on 11/1/17.
