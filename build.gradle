@@ -31,6 +31,7 @@ ext {
   rxPreferencesVersion = '2.0.0-RC3'
   stethoVersion = '1.5.0'
   leakCanaryVersion = '1.5.4'
+  searchViewVersion = '1.4.0'
 }
 
 allprojects {
