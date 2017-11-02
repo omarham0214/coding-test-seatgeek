@@ -33,6 +33,8 @@ ext {
   leakCanaryVersion = '1.5.4'
   searchViewVersion = '1.4.0'
   frescoVersion = '1.5.0'
+  robolectricVersion = '3.5.1'
+  mockitoVersion = '1.10.19'
 }
 
 allprojects {

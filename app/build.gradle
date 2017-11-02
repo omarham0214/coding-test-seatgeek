@@ -35,9 +35,17 @@ dependencies {
   implementation "com.android.support.constraint:constraint-layout:${rootProject.ext.constraintLayoutVersion}"
 
   testImplementation "junit:junit:${rootProject.ext.jUnitVersion}"
+  testImplementation "org.robolectric:robolectric:${rootProject.ext.robolectricVersion}"
+  testImplementation "org.mockito:mockito-core:${rootProject.ext.mockitoVersion}"
 
   androidTestImplementation "com.android.support.test:runner:${rootProject.ext.testRunnerVersion}"
   androidTestImplementation "com.android.support.test.espresso:espresso-core:${rootProject.ext.espressoRunnerVersion}"
+  androidTestImplementation("com.android.support.test.espresso:espresso-contrib:${rootProject.ext.espressoRunnerVersion}") {
+    exclude group: 'com.android.support', module: 'appcompat'
+    exclude group: 'com.android.support', module: 'support-v4'
+    exclude group: 'com.android.support', module: 'support-annotations'
+    exclude module: 'recyclerview-v7'
+  }
 
   implementation "io.reactivex.rxjava2:rxandroid:${rootProject.ext.rxAndroidVersion}"
   implementation "io.reactivex.rxjava2:rxjava:${rootProject.ext.rxJavaVersion}"
@@ -50,6 +58,7 @@ dependencies {
 
   debugImplementation "com.squareup.leakcanary:leakcanary-android:${rootProject.ext.leakCanaryVersion}"
   releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:${rootProject.ext.leakCanaryVersion}"
+  testImplementation "com.squareup.leakcanary:leakcanary-android-no-op:${rootProject.ext.leakCanaryVersion}"
 
   implementation "com.google.dagger:dagger:${rootProject.ext.daggerVersion}"
   kapt "com.google.dagger:dagger-compiler:${rootProject.ext.daggerVersion}"
