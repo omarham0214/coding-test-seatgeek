@@ -2,4 +2,11 @@
 <resources>
     <dimen name="recycler_icon_size">16dp</dimen>
     <dimen name="recycler_icon_margin">8dp</dimen>
+    <dimen name="recycler_image_size">70dp</dimen>
+    <dimen name="recycler_image_margin">15dp</dimen>
+    <dimen name="recycler_image_border">1dp</dimen>
+    <dimen name="recycler_title_size">14sp</dimen>
+    <dimen name="recycler_subtitle_size">13sp</dimen>
+    <dimen name="recycler_date_size">12sp</dimen>
+    <dimen name="recycler_favorite_padding">6dp</dimen>
 </resources>

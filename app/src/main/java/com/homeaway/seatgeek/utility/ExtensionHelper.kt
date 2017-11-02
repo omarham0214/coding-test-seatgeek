@@ -23,7 +23,7 @@ object ExtensionHelper {
 
     this.performers
         .filter({ performer -> performer.image != null })
-        .forEach({ performer: Performer -> return performer.image })
+        .forEach({ performer -> return performer.image })
 
     return placeholder
   }

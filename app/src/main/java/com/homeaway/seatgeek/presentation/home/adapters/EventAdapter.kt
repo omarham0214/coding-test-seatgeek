@@ -37,7 +37,7 @@ class EventAdapter(private val events: List<Event>, private val callback: (Event
 
       recycler_image.setImageURI(event.firstImage())
       recycler_event.text = event.title
-//      recycler_icon.visibility = if (event.isOpen) View.VISIBLE else View.GONE
+      recycler_favorite.visibility = if (event.isFavorite) View.VISIBLE else View.GONE
       recycler_location.text = event.venue.city
       recycler_date.text = event.datetimeLocal.prettyDate()
     }

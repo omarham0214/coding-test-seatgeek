@@ -22,4 +22,5 @@ data class Event(@SerializedName("announce_date") var announceDate: String,
                  @SerializedName("title") var title: String,
                  @SerializedName("created_at") var createdAt: String,
                  @SerializedName("short_title") var shortTitle: String,
-                 @SerializedName("performers") var performers: List<Performer>)
+                 @SerializedName("performers") var performers: List<Performer>,
+                 var isFavorite: Boolean)

@@ -7,16 +7,17 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="10dp">
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/recycler_image"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_margin="15dp"
+            android:layout_width="@dimen/recycler_image_size"
+            android:layout_height="@dimen/recycler_image_size"
+            android:layout_margin="@dimen/recycler_image_margin"
             fresco:roundAsCircle="true"
             fresco:roundingBorderColor="@color/colorPrimary"
-            fresco:roundingBorderWidth="1dp" />
+            fresco:roundingBorderWidth="@dimen/recycler_image_border" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,20 +30,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:textSize="14sp"
+                android:textSize="@dimen/recycler_title_size"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/recycler_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="13sp" />
+                android:textSize="@dimen/recycler_subtitle_size" />
 
             <TextView
                 android:id="@+id/recycler_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="12sp" />
+                android:textSize="@dimen/recycler_date_size" />
+
+            <TextView
+                android:id="@+id/recycler_favorite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="end"
+                android:padding="@dimen/recycler_favorite_padding"
+                android:text="@string/favorite"
+                android:textAllCaps="true"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/recycler_date_size" />
 
         </LinearLayout>
     </LinearLayout>
