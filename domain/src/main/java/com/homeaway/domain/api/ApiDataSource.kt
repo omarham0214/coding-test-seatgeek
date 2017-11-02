@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 class ApiDataSource @Inject constructor(private val seatGeekService: SeatGeekService) : DataSource {
 
-  override fun getEvents(searchTerm: String): Single<List<Event>> {
+  override fun getEvents(searchTerm: String?): Single<List<Event>> {
     return seatGeekService.retrieveEvents(searchTerm)
         .map { t -> t.events }
         .subscribeOn(Schedulers.io())

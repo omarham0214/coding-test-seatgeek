@@ -1,7 +1,6 @@
 package com.homeaway.seatgeek.presentation.details
 
 import com.homeaway.domain.dto.Event
-import com.homeaway.seatgeek.presentation.home.HomeContract
 
 /**
  * Created by Omar on 11/2/17.
@@ -9,12 +8,12 @@ import com.homeaway.seatgeek.presentation.home.HomeContract
 
 interface DetailsContract {
   interface View {
-    fun showFavorite(boolean: Boolean)
+    fun showFavorite(isFavorite: Boolean, favoriteChanged: Boolean)
   }
 
   interface Presenter {
-    fun checkFavorite(event: Event)
-    fun toggleFavorite(event: Event)
+    fun checkFavorite(event: Event?, favoriteChanged: Boolean)
+    fun toggleFavorite(event: Event?)
     fun start(view: View)
     fun stop()
   }

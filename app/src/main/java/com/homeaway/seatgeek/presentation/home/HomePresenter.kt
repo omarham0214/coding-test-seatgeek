@@ -1,10 +1,8 @@
 package com.homeaway.seatgeek.presentation.home
 
 import com.homeaway.domain.EventsProvider
-import io.reactivex.android.schedulers.AndroidSchedulers
+import com.homeaway.domain.dto.Event
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
-import java.util.*
 import javax.inject.Inject
 
 /**
@@ -26,12 +24,18 @@ class HomePresenter @Inject constructor(private val eventsProvider: EventsProvid
     compositeDisposable?.dispose()
   }
 
-  override fun loadEvents(searchTerm: String) {
+  override fun loadEvents(searchTerm: String?) {
     view?.showProgressBar(true, 0)
     eventsProvider.getEvents(searchTerm)
+        .map { checkFavorites(it) }
         .doOnError({ streamEnded(false, it.localizedMessage) })
         .doOnSuccess { streamEnded(true, null) }
         .subscribe { results -> view?.updateList(results) }
+  }
+
+  private fun checkFavorites(events: List<Event>): List<Event> {
+    events.forEach { it.isFavorite = eventsProvider.isFavorite(it) }
+    return events
   }
 
   private fun streamEnded(endedCorrectly: Boolean, message: String?) {

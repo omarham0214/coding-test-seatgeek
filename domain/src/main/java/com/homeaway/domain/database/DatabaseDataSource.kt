@@ -11,7 +11,7 @@ import javax.inject.Inject
  */
 class DatabaseDataSource @Inject constructor() : DataSource {
 
-  override fun getEvents(searchTerm: String): Single<List<Event>> {
+  override fun getEvents(searchTerm: String?): Single<List<Event>> {
     // TODO 11/1: Use database to avoid API lookup
     return Single.never()
   }

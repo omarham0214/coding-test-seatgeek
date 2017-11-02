@@ -17,7 +17,7 @@ import retrofit2.http.Query
 interface SeatGeekService {
 
   @GET("/2/events?client_id")
-  fun retrieveEvents(@Query("q") query: String): Single<SeatGeekResponse>
+  fun retrieveEvents(@Query("q") query: String?): Single<SeatGeekResponse>
 
   companion object Factory {
     private val BASE_URL = "https://api.seatgeek.com/"

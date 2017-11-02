@@ -10,8 +10,8 @@ import javax.inject.Inject
  */
 
 class PreferencesDataSource @Inject constructor(private val rxSharedPreferences: RxSharedPreferences) {
-  fun toggleFavorite(event: Event) {
-    val id = event.id.toString()
+  fun toggleFavorite(event: Event?) {
+    val id = event?.id.toString()
     val preference = rxSharedPreferences.getBoolean(id)
     when {
       isFavorite(event) -> preference.delete()
@@ -19,8 +19,8 @@ class PreferencesDataSource @Inject constructor(private val rxSharedPreferences:
     }
   }
 
-  fun isFavorite(event: Event): Boolean {
-    val id = event.id.toString()
+  fun isFavorite(event: Event?): Boolean {
+    val id = event?.id.toString()
     return rxSharedPreferences.getBoolean(id).isSet
   }
 

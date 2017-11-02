@@ -9,4 +9,7 @@
     <dimen name="recycler_subtitle_size">13sp</dimen>
     <dimen name="recycler_date_size">12sp</dimen>
     <dimen name="recycler_favorite_padding">6dp</dimen>
+    <dimen name="details_favorite_padding">5dp</dimen>
+    <dimen name="details_subtitle_size">13sp</dimen>
+    <dimen name="details_title_size">15sp</dimen>
 </resources>

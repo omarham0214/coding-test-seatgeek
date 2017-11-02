@@ -56,5 +56,5 @@ dependencies {
 
   implementation "com.miguelcatalan:materialsearchview:${rootProject.ext.searchViewVersion}"
 
-  compile "com.facebook.fresco:fresco:${rootProject.ext.frescoVersion}"
+  implementation "com.facebook.fresco:fresco:${rootProject.ext.frescoVersion}"
 }

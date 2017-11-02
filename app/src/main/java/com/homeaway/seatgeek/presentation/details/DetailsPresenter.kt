@@ -2,7 +2,6 @@ package com.homeaway.seatgeek.presentation.details
 
 import com.homeaway.domain.EventsProvider
 import com.homeaway.domain.dto.Event
-import com.homeaway.seatgeek.presentation.home.HomeContract
 import javax.inject.Inject
 
 /**
@@ -13,13 +12,15 @@ class DetailsPresenter @Inject constructor(private val eventsProvider: EventsPro
 
   var view: DetailsContract.View? = null
 
-  override fun checkFavorite(event: Event) {
-    view?.showFavorite(eventsProvider.isFavorite(event))
+  override fun checkFavorite(event: Event?, favoriteChanged: Boolean) {
+    val isFavorite = eventsProvider.isFavorite(event)
+    event?.isFavorite = isFavorite
+    view?.showFavorite(isFavorite, favoriteChanged)
   }
 
-  override fun toggleFavorite(event: Event) {
+  override fun toggleFavorite(event: Event?) {
     eventsProvider.toggleFavoriteEvent(event)
-    checkFavorite(event)
+    checkFavorite(event, true)
   }
 
   override fun start(view: DetailsContract.View) {

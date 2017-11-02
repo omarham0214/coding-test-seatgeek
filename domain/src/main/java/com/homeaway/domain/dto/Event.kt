@@ -1,6 +1,7 @@
 package com.homeaway.domain.dto
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Event(@SerializedName("announce_date") var announceDate: String,
                  @SerializedName("taxonomies") var taxonomies: List<Taxonomy>,
@@ -23,4 +24,4 @@ data class Event(@SerializedName("announce_date") var announceDate: String,
                  @SerializedName("created_at") var createdAt: String,
                  @SerializedName("short_title") var shortTitle: String,
                  @SerializedName("performers") var performers: List<Performer>,
-                 var isFavorite: Boolean)
+                 var isFavorite: Boolean) : Serializable

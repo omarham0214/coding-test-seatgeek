@@ -27,6 +27,8 @@ import com.homeaway.seatgeek.utility.ExtensionHelper.refresh
 
 class HomeActivity : BaseActivity(), HomeContract.View {
 
+  private val SEARCH_TERM_KEY = "SEARCH_TERM_KEY"
+
   @Inject
   lateinit var homePresenter: HomePresenter
 
@@ -37,6 +39,8 @@ class HomeActivity : BaseActivity(), HomeContract.View {
 
   private val eventList = mutableListOf<Event>()
   private val eventAdapter = EventAdapter(eventList, { DetailsActivity.newIntent(this, it) })
+
+  private var searchTerm: String? = null
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -63,6 +67,7 @@ class HomeActivity : BaseActivity(), HomeContract.View {
     super.onResume()
 
     setupSearchView()
+    homePresenter.loadEvents(searchTerm)
   }
 
   override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -71,6 +76,16 @@ class HomeActivity : BaseActivity(), HomeContract.View {
     val item = menu?.findItem(R.id.action_search)
     home_search.setMenuItem(item)
     return true
+  }
+
+  override fun onSaveInstanceState(outState: Bundle?) {
+    super.onSaveInstanceState(outState)
+    outState?.putString(SEARCH_TERM_KEY, searchTerm)
+  }
+
+  override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+    super.onRestoreInstanceState(savedInstanceState)
+    searchTerm = savedInstanceState?.getString(SEARCH_TERM_KEY)
   }
 
   override fun injectDependencies(mainComponent: MainComponent?) {
@@ -116,7 +131,10 @@ class HomeActivity : BaseActivity(), HomeContract.View {
         .distinctUntilChanged()
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
-        .subscribe({ homePresenter.loadEvents(it) })
+        .subscribe({
+          searchTerm = it
+          homePresenter.loadEvents(it)
+        })
 
     compositeDisposable?.add(disposable)
   }

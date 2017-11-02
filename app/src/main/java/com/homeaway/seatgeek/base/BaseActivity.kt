@@ -25,6 +25,7 @@ abstract class BaseActivity : AppCompatActivity() {
   private fun setupToolbar() {
     if (home_toolbar != null) setSupportActionBar(home_toolbar)
     home_toolbar?.setTitleTextColor(Color.WHITE)
+    home_toolbar?.setSubtitleTextColor(Color.WHITE)
   }
 
   abstract fun injectDependencies(mainComponent: MainComponent?)

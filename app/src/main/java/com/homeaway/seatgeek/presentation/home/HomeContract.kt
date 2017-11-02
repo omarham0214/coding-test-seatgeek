@@ -15,7 +15,7 @@ interface HomeContract {
   }
 
   interface Presenter {
-    fun loadEvents(searchTerm: String)
+    fun loadEvents(searchTerm: String?)
     fun start(view: View)
     fun stop()
   }

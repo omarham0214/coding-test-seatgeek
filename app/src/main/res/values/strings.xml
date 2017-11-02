@@ -2,4 +2,8 @@
     <string name="app_name">SeatGeek</string>
     <string name="search">Search</string>
     <string name="favorite">Favorite!</string>
+    <string name="toggle_favorite">Toggle Favorite!</string>
+    <string name="added_to_favorites">Added to Favorites!</string>
+    <string name="removed_from_favorites">Remoted from favorites!</string>
+    <string name="undo">Undo!</string>
 </resources>

@@ -8,5 +8,5 @@ import io.reactivex.Single
  */
 
 interface DataSource {
-  fun getEvents(searchTerm: String): Single<List<Event>>
+  fun getEvents(searchTerm: String?): Single<List<Event>>
 }

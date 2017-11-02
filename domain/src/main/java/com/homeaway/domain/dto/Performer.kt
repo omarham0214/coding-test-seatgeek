@@ -1,6 +1,7 @@
 package com.homeaway.domain.dto
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Performer(@SerializedName("image") var image: String? = null,
                      @SerializedName("short_name") var shortName: String,
@@ -21,4 +22,4 @@ data class Performer(@SerializedName("image") var image: String? = null,
                      @SerializedName("url") var url: String,
                      @SerializedName("image_attribution") var imageAttribution: String,
                      @SerializedName("statsEvent") var statsEvent: StatsEvent,
-                     @SerializedName("home_venue_id") var homeVenueId: Any)
+                     @SerializedName("home_venue_id") var homeVenueId: Any) : Serializable

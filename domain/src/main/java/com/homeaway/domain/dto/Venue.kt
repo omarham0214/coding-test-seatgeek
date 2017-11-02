@@ -1,6 +1,7 @@
 package com.homeaway.domain.dto
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Venue(@SerializedName("slug") var slug: String,
                  @SerializedName("url") var url: String,
@@ -20,4 +21,4 @@ data class Venue(@SerializedName("slug") var slug: String,
                  @SerializedName("has_upcoming_events") var hasUpcomingEvents: Boolean,
                  @SerializedName("display_location") var displayLocation: String,
                  @SerializedName("state") var state: String,
-                 @SerializedName("id") var id: Int = 0)
+                 @SerializedName("id") var id: Int = 0) : Serializable
