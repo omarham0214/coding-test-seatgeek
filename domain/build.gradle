@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
   compileSdkVersion rootProject.ext.compileSdkVersion
@@ -20,17 +21,25 @@ android {
 
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
-  implementation "com.android.support:appcompat-v7:${rootProject.ext.androidSupportVersion}"
 
-  testImplementation "junit:junit:${rootProject.ext.jUnitVersion}"
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+  implementation "com.android.support:appcompat-v7:${rootProject.ext.androidSupportVersion}"
 
   androidTestImplementation "com.android.support.test:runner:${rootProject.ext.testRunnerVersion}"
   androidTestImplementation "com.android.support.test.espresso:espresso-core:${rootProject.ext.espressoRunnerVersion}"
-  compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
   implementation "io.reactivex.rxjava2:rxandroid:${rootProject.ext.rxAndroidVersion}"
   implementation "io.reactivex.rxjava2:rxjava:${rootProject.ext.rxJavaVersion}"
 
+  implementation "com.f2prateek.rx.preferences2:rx-preferences:${rootProject.ext.rxPreferencesVersion}"
+
   implementation "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofitVersion}"
   implementation "com.squareup.retrofit2:converter-moshi:${rootProject.ext.retrofitVersion}"
+  implementation "com.squareup.retrofit2:adapter-rxjava2:${rootProject.ext.retrofitVersion}"
+
+  implementation "com.google.dagger:dagger:${rootProject.ext.daggerVersion}"
+  kapt "com.google.dagger:dagger-compiler:${rootProject.ext.daggerVersion}"
+
+  testImplementation "junit:junit:${rootProject.ext.jUnitVersion}"
 }
