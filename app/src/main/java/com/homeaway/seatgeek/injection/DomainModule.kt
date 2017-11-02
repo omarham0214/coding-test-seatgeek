@@ -24,12 +24,6 @@ class DomainModule(private val context: Context) {
 
   @Singleton
   @Provides
-  fun createEventsProvider(apiDataSource: ApiDataSource, databaseDataSource: DatabaseDataSource, preferencesDataSource: PreferencesDataSource): EventsProvider {
-    return EventsProvider(apiDataSource, databaseDataSource, preferencesDataSource);
-  }
-
-  @Singleton
-  @Provides
   fun createRxSharedPreferences(): RxSharedPreferences {
     val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
     return RxSharedPreferences.create(sharedPreferences)
@@ -57,11 +51,5 @@ class DomainModule(private val context: Context) {
   @Provides
   fun createSeatGeekService(retrofit: Retrofit): SeatGeekService {
     return SeatGeekService.Factory.createApiService(retrofit)
-  }
-
-  @Singleton
-  @Provides
-  fun createDatabaseDataSource(): DatabaseDataSource {
-    return DatabaseDataSource()
   }
 }

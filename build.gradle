@@ -29,6 +29,8 @@ ext {
   retrofitVersion = '2.3.0'
   daggerVersion = '2.12'
   rxPreferencesVersion = '2.0.0-RC3'
+  stethoVersion = '1.5.0'
+  leakCanaryVersion = '1.5.4'
 }
 
 allprojects {

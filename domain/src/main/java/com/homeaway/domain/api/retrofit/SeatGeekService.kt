@@ -19,7 +19,7 @@ interface SeatGeekService {
   @GET("/2/events?client_id")
   fun retrieveEvents(@Query("q") query: String): Single<SeatGeekResponse>
 
-  object Factory {
+  companion object Factory {
     private val BASE_URL = "https://api.seatgeek.com/"
     private val CLIENT_ID = "OTQ4MTk5N3wxNTA5NTc2ODEzLjg3" //TODO: Hide with NDK
 
