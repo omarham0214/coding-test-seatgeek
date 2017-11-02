@@ -1,15 +1,9 @@
 package com.homeaway.seatgeek.presentation.home
 
 import com.homeaway.domain.EventsProvider
-import com.homeaway.domain.dto.Event
-import io.reactivex.Observable
-import io.reactivex.Observable.create
-import io.reactivex.Observable.just
-import io.reactivex.ObservableEmitter
-import io.reactivex.ObservableOnSubscribe
-import io.reactivex.Observer
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.functions.Consumer
+import io.reactivex.schedulers.Schedulers
 import java.util.*
 import javax.inject.Inject
 
@@ -33,11 +27,17 @@ class HomePresenter @Inject constructor(private val eventsProvider: EventsProvid
   }
 
   override fun loadEvents(searchTerm: String) {
-//    eventsProvider.getEvents(searchTerm)
-//        .doOnError({ view?.errorHappened(it.localizedMessage) })
-//        .doOnSuccess { view?.hideProgressBar() }
-//        .subscribe { results -> view?.updateList(results) }
+    view?.showProgressBar(true, 0)
+    eventsProvider.getEvents(searchTerm)
+        .doOnError({ streamEnded(false, it.localizedMessage) })
+        .doOnSuccess { streamEnded(true, null) }
+        .subscribe { results -> view?.updateList(results) }
+  }
 
-    println("$searchTerm ${Date()}")
+  private fun streamEnded(endedCorrectly: Boolean, message: String?) {
+    if (!endedCorrectly) {
+      view?.errorHappened(message ?: "Something went wrong!")
+    }
+    view?.hideProgressBar()
   }
 }

@@ -5,6 +5,8 @@ import com.homeaway.domain.database.DatabaseDataSource
 import com.homeaway.domain.dto.Event
 import com.homeaway.domain.preferences.PreferencesDataSource
 import io.reactivex.Single
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 /**

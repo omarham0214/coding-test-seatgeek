@@ -1,13 +1,10 @@
 package com.homeaway.seatgeek.injection
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import com.f2prateek.rx.preferences2.RxSharedPreferences
-import com.homeaway.domain.EventsProvider
-import com.homeaway.domain.api.ApiDataSource
 import com.homeaway.domain.api.retrofit.SeatGeekService
-import com.homeaway.domain.database.DatabaseDataSource
-import com.homeaway.domain.preferences.PreferencesDataSource
 import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor
@@ -24,8 +21,13 @@ class DomainModule(private val context: Context) {
 
   @Singleton
   @Provides
-  fun createRxSharedPreferences(): RxSharedPreferences {
-    val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+  fun createSharedPreferences(): SharedPreferences {
+    return PreferenceManager.getDefaultSharedPreferences(context)
+  }
+
+  @Singleton
+  @Provides
+  fun createRxSharedPreferences(sharedPreferences: SharedPreferences): RxSharedPreferences {
     return RxSharedPreferences.create(sharedPreferences)
   }
 

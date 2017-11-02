@@ -2,7 +2,7 @@ package com.homeaway.domain.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class Performer(@SerializedName("image") var image: String,
+data class Performer(@SerializedName("image") var image: String? = null,
                      @SerializedName("short_name") var shortName: String,
                      @SerializedName("taxonomies") var taxonomies: List<Taxonomy>,
                      @SerializedName("primary") var primary: Boolean,

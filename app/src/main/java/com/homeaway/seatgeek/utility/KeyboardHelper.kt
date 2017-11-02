@@ -1,7 +1,6 @@
 package com.homeaway.seatgeek.utility
 
 import android.content.Context
-import android.content.Context.INPUT_METHOD_SERVICE
 import android.support.v7.app.AppCompatActivity
 import android.view.inputmethod.InputMethodManager
 

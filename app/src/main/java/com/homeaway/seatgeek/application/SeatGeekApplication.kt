@@ -1,6 +1,7 @@
 package com.homeaway.seatgeek.application
 
 import android.app.Application
+import com.facebook.drawee.backends.pipeline.Fresco
 
 import com.facebook.stetho.Stetho
 import com.homeaway.seatgeek.injection.DaggerMainComponent
@@ -26,6 +27,7 @@ class SeatGeekApplication : Application() {
 
     LeakCanary.install(this)
     Stetho.initializeWithDefaults(this)
+    Fresco.initialize(this);
 
     mainComponent = DaggerMainComponent.builder()
         .domainModule(DomainModule(this))
